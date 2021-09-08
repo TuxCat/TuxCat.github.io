@@ -7,19 +7,21 @@
 <p>Date/Time: <span id="datetime"></span></p>
 
 <script>
-var timeDisplay = document.getElementById("time");
+var span = document.getElementById('span');
 
-
-function refreshTime() {
-  var dateString = new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"});
-  var formattedString = dateString.replace(", ", " - ");
-  timeDisplay.innerHTML = formattedString;
+function time() {
+  var d = new Date();
+  var s = d.getSeconds();
+  var m = d.getMinutes();
+  var h = d.getHours();
+  span.textContent = 
+    ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
 }
 
-setInterval(refreshTime, 1000);
+setInterval(time, 1000);
 </script>
 
-<p id="time"></p>
+<span id="span"></span>
 
 </body>
 </html>
